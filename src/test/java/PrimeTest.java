@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import primes.PrimeFinder;
+import primes.algo.EAlgorithm;
 import primes.algo.Multi6Algorithm;
 
 import java.nio.file.Files;
@@ -19,7 +20,7 @@ public class PrimeTest {
 
     @BeforeEach
     public void findNumbers() throws Exception{
-        PrimeFinder primeFinder = new PrimeFinder(MAX_SEARCH, Multi6Algorithm.class);
+        PrimeFinder primeFinder = new PrimeFinder(MAX_SEARCH, EAlgorithm.class);
         found = primeFinder.find();
         String data = Files.readString(Path.of("primes.txt"));
         String[] lines = data.split("\n");
@@ -30,7 +31,7 @@ public class PrimeTest {
     public void timeTest () throws Exception {
         List<Long> durations = new ArrayList<>();
         for(int i =0 ; i<= 500; i++){
-            PrimeFinder primeFinder = new PrimeFinder(MAX_SEARCH, Multi6Algorithm.class);
+            PrimeFinder primeFinder = new PrimeFinder(MAX_SEARCH, EAlgorithm.class);
             long start = System.currentTimeMillis();
             int[] arr = primeFinder.find();
             durations.add(System.currentTimeMillis() - start);

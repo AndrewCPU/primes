@@ -1,5 +1,6 @@
 package primes;
 
+import primes.algo.EAlgorithm;
 import primes.algo.Multi6Algorithm;
 
 import java.io.File;
@@ -15,7 +16,7 @@ public class PrimeDriver {
 
         max = Integer.parseInt(args[0]);
 
-        PrimeFinder primeFinder = new PrimeFinder(max, Multi6Algorithm.class);
+        PrimeFinder primeFinder = new PrimeFinder(max, EAlgorithm.class);
         long start = System.currentTimeMillis();
         int[] nums = primeFinder.find();
 
